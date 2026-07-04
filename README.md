@@ -1,16 +1,44 @@
-# JavaScript Practice Repository
+# 🚀 JavaScript Week 01 Practice
 
-This repository contains my JavaScript practice tasks, coding challenges, and weekly assignments completed during my learning journey.
+Welcome to my **JavaScript Week 01 Practice Repository**.
 
-## 📂 Files Included
+This repository contains my JavaScript practice programs and coding challenges completed during my learning journey.
 
-- Daily_Challenges.js
-- weeek1.js
-- Week01_word_prob.js
+---
 
-## 🚀 Topics Covered
+## 📂 Project Structure
 
-- Variables
+```
+JS
+│
+├── outputs
+│   ├── challenges.png
+│   └── week1-output.png
+│
+├── Daily_Challenges.js
+├── weeek1.js
+├── Week01_word_prob.js
+└── README.md
+```
+
+---
+
+## 📚 Files
+
+### 📄 Daily_Challenges.js
+Contains solutions to daily JavaScript coding challenges.
+
+### 📄 weeek1.js
+Contains JavaScript concepts and practice programs from Week 1.
+
+### 📄 Week01_word_prob.js
+Contains JavaScript word problems and their solutions.
+
+---
+
+## 💡 Topics Covered
+
+- Variables (`var`, `let`, `const`)
 - Data Types
 - Operators
 - Conditional Statements
@@ -18,22 +46,31 @@ This repository contains my JavaScript practice tasks, coding challenges, and we
 - Functions
 - Arrays
 - Objects
-- String Methods
+- Strings
 - Problem Solving
+
+---
 
 ## 📸 Output Screenshots
 
+### Daily Challenges Output
 
-
-### Challenge 
-
-![Challenges ](ouputs/challenges.png)
+![Daily Challenges](outputs/challenges.png)
 
 ---
 
 ### Week 1 Output
 
-![Week 1](outputs/week1-output.png)
+![Week 1 Output](outputs/week1-output.png)
+
+---
+
+## 🛠️ Technologies Used
+
+- JavaScript (ES6)
+- Visual Studio Code
+- Git
+- GitHub
 
 ---
 
@@ -41,8 +78,22 @@ This repository contains my JavaScript practice tasks, coding challenges, and we
 
 **Awais Ijaz**
 
-Software Engineering Student
+🎓 Software Engineering Student  
+🏫 COMSATS University Islamabad  
 
-COMSATS University Islamabad
+💻 Learning JavaScript & MERN Stack Development
 
-Learning JavaScript | MERN Stack Developer
+---
+
+## ⭐ Repository Purpose
+
+This repository is created to:
+
+- Practice JavaScript fundamentals
+- Improve problem-solving skills
+- Track learning progress
+- Build a professional GitHub portfolio
+
+---
+
+### Thank you for visiting this repository! ⭐
