@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Debounce Search Example</h2>
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Type something..."
+    >
+    <p id="result">Waiting for input...</p>
+
+    <script>
+        function debounce(callback, delay) {
+
+            let timer;
+
+            return function () {
+
+                clearTimeout(timer);
+
+                let value = this.value;
+
+                timer = setTimeout(function () {
+                    callback(value);
+                }, delay);
+
+            };
+
+        }
+
+        function search(text) {
+
+            console.log("Searching:", text);
+
+            document.getElementById("result").textContent =
+                "Searching for: " + text;
+
+        }
+
+        const searchBox = document.getElementById("searchBox");
+
+        searchBox.addEventListener(
+            "input",
+            debounce(search, 300)
+        );
+    </script>
+
+</body>
+</html>

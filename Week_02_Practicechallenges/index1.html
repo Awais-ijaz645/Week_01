@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Toggle</title>
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      padding: 50px; 
+      background-color: #f4f7f6;
+    }
+    
+    .wrapper { 
+      position: relative; 
+      display: inline-block; 
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    input { 
+      width: 100%;
+      padding: 12px 15px; 
+      padding-right: 70px; 
+      border: 1px solid #ccc; 
+      border-radius: 4px;
+      box-sizing: border-box; 
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4a90e2;
+    }
+
+    button { 
+      position: absolute; 
+      right: 5px; 
+      top: 5px; 
+      bottom: 5px;
+      padding: 0 15px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #555;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background-color: #d0d0d0;
+    }
+
+    button:active {
+      background-color: #c0c0c0;
+    }
+  </style>
+</head>
+<body>
+<h3>Secure Password</h3>
+  <div class="wrapper">
+    <input type="password" id="pass" placeholder="Enter password">
+    <button type="button" id="toggleBtn">Show</button>
+  </div>
+
+  <script>
+    const input = document.getElementById('pass');
+    const btn = document.getElementById('toggleBtn');
+
+    btn.addEventListener('click', () => {
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      btn.textContent = isPassword ? 'Hide' : 'Show';
+    });
+  </script>
+</body>
+</html>

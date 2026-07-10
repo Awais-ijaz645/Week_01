@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Animation</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+    
+    .spacer { height: 80vh; display: flex; align-items: center; justify-content: center; color: #888; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spacer">Scroll down to see the effect</div>
+
+  <div class="card reveal">
+    <h2>Professional Reveal</h2>
+    <p>This element was hidden until you scrolled it into view. Using the Intersection Observer API ensures this is smooth and doesn't lag your website.</p>
+  </div>
+
+  <div class="spacer">Keep going...</div>
+
+  <div class="card reveal">
+    <h2>Another Section</h2>
+    <p>Animations add a high-end feel to professional layouts when used sparingly.</p>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1 // Triggers when 10% of the element is visible
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

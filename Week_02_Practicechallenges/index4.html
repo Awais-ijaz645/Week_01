@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Professional Stopwatch</title>
+  <style>
+    body { 
+      font-family: 'Segoe UI', system-ui, sans-serif; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+      background-color: #f0f2f5; 
+      margin: 0;
+    }
+
+    .stopwatch-card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    #display {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 25px;
+      display: block;
+    }
+
+    .controls { display: flex; gap: 10px; justify-content: center; }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button:active { transform: scale(0.98); }
+
+    #startBtn { background: #27ae60; color: white; }
+    #stopBtn { background: #e74c3c; color: white; }
+    #resetBtn { background: #7f8c8d; color: white; }
+  </style>
+</head>
+<body>
+
+  <div class="stopwatch-card">
+    <div id="display">00:00:00</div>
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn">Stop</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    let startTime, elapsedTime = 0, timerInterval;
+    const display = document.getElementById('display');
+
+    function formatTime(ms) {
+      let totalSeconds = Math.floor(ms / 1000);
+      let h = Math.floor(totalSeconds / 3600);
+      let m = Math.floor((totalSeconds % 3600) / 60);
+      let s = totalSeconds % 60;
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+      if (!timerInterval) {
+        startTime = Date.now() - elapsedTime;
+        timerInterval = setInterval(() => {
+          elapsedTime = Date.now() - startTime;
+          display.textContent = formatTime(elapsedTime);
+        }, 1000);
+      }
+    });
+
+    document.getElementById('stopBtn').addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      elapsedTime = 0;
+      display.textContent = "00:00:00";
+    });
+  </script>
+</body>
+</html>

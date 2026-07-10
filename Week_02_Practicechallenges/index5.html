@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Search Filter</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 50px; }
+    .search-container { max-width: 400px; margin: auto; }
+    
+    #searchBox {
+      width: 100%;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 25px; /* Rounded pill shape */
+      outline: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: border 0.3s;
+    }
+    
+    #searchBox:focus { border-color: #4a90e2; }
+
+    #resultList { list-style: none; padding: 0; }
+    .item {
+      background: white;
+      padding: 15px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: block;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <input type="text" id="searchBox" placeholder="Search names...">
+    <ul id="resultList">
+      <li class="item">Awais Ijaz</li>
+      <li class="item">Awais raza</li>
+      <li class="item">Hanzla</li>
+      <li class="item">Huzafah</li>
+      <li class="item">Raja</li>
+    </ul>
+  </div>
+
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    const items = document.querySelectorAll('.item');
+
+    searchBox.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        // Toggle 'hidden' class based on match
+        item.classList.toggle('hidden', !text.includes(searchTerm));
+      });
+    });
+  </script>
+</body>
+</html>

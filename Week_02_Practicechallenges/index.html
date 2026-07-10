@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible Dropdown</title>
+  <style>
+    /* Basic Styling */
+    body { font-family: sans-serif; padding: 50px; }
+    .dropdown { position: relative; display: inline-block; }
+    
+    .dropdown-btn {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none; 
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin: 5px 0 0 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      list-style: none;
+      min-width: 150px;
+    }
+
+    .dropdown-menu.show { display: block; }
+
+    .dropdown-menu li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown">
+    <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">
+      Menu Options
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li role="none"><a href="#" role="menuitem">Profile</a></li>
+      <li role="none"><a href="#" role="menuitem">Settings</a></li>
+      <li role="none"><a href="#" role="menuitem">Logout</a></li>
+    </ul>
+  </div>
+
+ <script>
+  const btn = document.querySelector('.dropdown-btn');
+  const menu = document.querySelector('.dropdown-menu');
+  const menuItems = menu.querySelectorAll('[role="menuitem"]');
+
+  const toggleMenu = (open) => {
+    menu.classList.toggle('show', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+
+  btn.addEventListener('click', () => toggleMenu(menu.classList.toggle('show')));
+
+  document.addEventListener('keydown', (e) => {
+    const isExpanded = menu.classList.contains('show');
+
+    if (e.key === 'ArrowDown' && document.activeElement === btn && !isExpanded) {
+      toggleMenu(true);
+      menuItems[0].focus();
+    }
+
+    if (e.key === 'Escape' && isExpanded) {
+      toggleMenu(false);
+      btn.focus();
+    }
+    if (isExpanded) {
+      const activeIndex = Array.from(menuItems).indexOf(document.activeElement);
+      
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = (activeIndex + 1) % menuItems.length;
+        menuItems[next].focus();
+      }
+      
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = (activeIndex - 1 + menuItems.length) % menuItems.length;
+        menuItems[prev].focus();
+      }
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) toggleMenu(false);
+  });
+</script>
+
+</body>
+</html>

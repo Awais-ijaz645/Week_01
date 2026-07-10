@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagination</title>
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #items{
+            width:300px;
+            margin:auto;
+        }
+
+        .item{
+            border:1px solid black;
+            margin:5px;
+            padding:10px;
+        }
+
+        button{
+            margin:5px;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>23 Items - 5 Per Page</h2>
+
+<div id="items"></div>
+
+<br>
+
+<button onclick="showPage(1)">1</button>
+<button onclick="showPage(2)">2</button>
+<button onclick="showPage(3)">3</button>
+<button onclick="showPage(4)">4</button>
+<button onclick="showPage(5)">5</button>
+
+<script>
+
+let items = [];
+
+// Create 23 items
+for(let i = 1; i <= 23; i++){
+    items.push("Item " + i);
+}
+
+function showPage(page){
+
+    let itemsDiv = document.getElementById("items");
+
+    itemsDiv.innerHTML = "";
+
+    let start = (page - 1) * 5;
+    let end = start + 5;
+
+    for(let i = start; i < end && i < items.length; i++){
+
+        itemsDiv.innerHTML += "<div class='item'>" + items[i] + "</div>";
+
+    }
+
+}
+
+showPage(1);
+
+</script>
+
+</body>
+</html>

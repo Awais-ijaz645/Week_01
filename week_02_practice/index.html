@@ -1,0 +1,720 @@
+<!-- // Practice Semantic tags: header, nav, main, section, article
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraz Pakistan</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+    <h1>Daraz Pakistan</h1>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Categories</a>
+        <a href="#">Deals</a>
+        <a href="#">Cart</a>
+    </nav>
+
+</header>
+
+<main>
+
+<section>
+
+<h2>Today's Best Deals</h2>
+
+<div class="products">
+
+<article>
+
+<h3>HP Laptop</h3>
+
+<p>Rs.120,000</p>
+
+<button>Buy Now</button>
+
+</article>
+
+<article>
+
+<h3>Gaming Mouse</h3>
+
+<p>Rs.4,500</p>
+
+<button>Buy Now</button>
+
+</article>
+
+<article>
+
+<h3>Keyboard</h3>
+
+<p>Rs.6,000</p>
+
+<button>Buy Now</button>
+
+</article>
+
+<article>
+
+<h3>Monitor</h3>
+
+<p>Rs.38,000</p>
+
+<button>Buy Now</button>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+    <style>
+
+:root{
+    --primary-color:#0b6e99;
+    --secondary-color:#ffffff;
+    --bg-color:#f5f5f5;
+    --card-color:#ffffff;
+    --text-color:#333;
+    --spacing:1.25rem;
+    --radius:10px;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, sans-serif;
+    background:var(--bg-color);
+    color:var(--text-color);
+}
+
+header{
+    background:var(--primary-color);
+    color:var(--secondary-color);
+    text-align:center;
+    padding:2rem;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    gap:1.5rem;
+    background:#09597c;
+    padding:1rem;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:1rem;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+main{
+    width:90%;
+    margin:2rem auto;
+}
+
+
+section{
+    background:var(--card-color);
+    padding:var(--spacing);
+    margin-bottom:1.5rem;
+    border-radius:var(--radius);
+}
+
+article{
+    margin-top:1rem;
+    padding:1rem;
+    background:#eef7fb;
+    border-radius:8px;
+}
+
+
+@media (max-width:768px){
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    header{
+        padding:1rem;
+    }
+
+    main{
+        width:95%;
+    }
+
+}
+    </style>
+<body>
+
+<header>
+    <h1>City Hospital</h1>
+    <p>24/7 Emergency Services</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Doctors</a>
+    <a href="#">Appointments</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+<div class="department">
+<section>
+    <h2>Our Departments</h2>
+
+    <article>
+        <h3>Cardiology</h3>
+        <p>Heart specialists available.</p>
+    </article>
+
+    <article>
+        <h3>Neurology</h3>
+        <p>Brain and nervous system treatment.</p>
+    </article>
+
+</section>
+</div>
+<section>
+
+<h2>Latest Health News</h2>
+
+<article>
+<h3>Free Medical Camp</h3>
+<p>Sunday at City Hospital.</p>
+</article>
+
+</section>
+
+</main>
+
+</body>
+</html>
+
+//Practice of forms and validation
+<html>
+    <body>
+        <form>
+
+<label for="email">Email</label>
+<input type="email" id="email" required>
+
+<br><br>
+
+<label for="password">Password</label>
+<input type="password" id="password"  minlength="8">
+
+<br><br>
+
+<input type="submit" value="Login">
+
+</form>
+
+
+<form>
+
+<label for="name">Full Name</label>
+<input type="text" id="name" required><br><br>
+
+<label for="email">Email</label>
+<input type="email" id="email" required><br><br>
+
+<label for="password">Password</label>
+<input type="password" id="password" minlength="8" required><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<form>
+
+<h2>University Admission Form</h2>
+
+<label for="fullname">Full Name</label><br>
+<input type="text" id="fullname" required><br><br>
+
+<label for="email">Email</label><br>
+<input type="email" id="email" required><br><br>
+
+<label for="phone">Phone Number</label><br>
+<input type="tel" id="phone" pattern="[0-9]{11}" required><br><br>
+
+<label for="dob">Date of Birth</label><br>
+<input type="date" id="dob" required><br><br>
+
+<label>Gender</label><br>
+
+<input type="radio" id="male" name="gender">
+<label for="male">Male</label>
+
+<input type="radio" id="female" name="gender">
+<label for="female">Female</label>
+
+<br><br>
+
+<label for="department">Department</label><br>
+
+<select id="department">
+
+<option>Computer Science</option>
+
+<option>Software Engineering</option>
+
+<option>Artificial Intelligence</option>
+
+<option>Cyber Security</option>
+
+</select>
+
+<br><br>
+
+<label for="marks">Intermediate Marks</label><br>
+
+<input type="number" id="marks" min="0" max="1100">
+
+<br><br>
+
+<label for="certificate">Upload Result Card</label><br>
+
+<input type="file" id="certificate">
+
+<br><br>
+
+<input type="checkbox" required>
+
+I confirm all information is correct.
+
+<br><br>
+
+<input type="submit" value="Submit Application">
+
+</form>
+    </body>
+</html>
+
+
+//Accessibility basics: ARIA labels, tab index
+
+<html>
+    <body><br>
+       <form>
+
+<input
+placeholder="Patient Name"
+tabindex="1">
+
+<input
+placeholder="Phone"
+tabindex="2">
+
+<input
+type="date"
+tabindex="3">
+
+<button
+tabindex="4">
+
+Book Appointment
+
+</button>
+
+</form>
+<div>
+
+<h2>Gaming Laptop</h2>
+
+<button
+aria-label="Add Gaming Laptop to Cart">
+
+🛒
+
+</button>
+
+<button
+aria-label="Add Gaming Laptop to Wishlist">
+
+❤️
+
+</button>
+
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabindex Demo</title>
+</head>
+<body>
+
+<h1>Tabindex Example</h1>
+
+<input type="text" placeholder="First Name" tabindex="2">
+
+<br><br>
+
+<input type="text" placeholder="Last Name" tabindex="1">
+
+<br><br>
+
+<button tabindex="3">
+Submit
+</button>
+
+</body>
+</html>                                             
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Hospital</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>/* ===========================
+   CSS Variables
+=========================== */
+
+:root{
+
+--primary:#0b6e99;
+--secondary:#ffffff;
+--bg:#f5f5f5;
+--card:#ffffff;
+--spacing:1.5rem;
+--radius:10px;
+
+}
+
+/* ===========================
+   Reset
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Arial,sans-serif;
+background:var(--bg);
+
+}
+
+/* ===========================
+   Header (Flexbox)
+=========================== */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:var(--primary);
+padding:var(--spacing);
+
+}
+
+header h1{
+
+color:white;
+
+}
+
+nav{
+
+display:flex;
+gap:1.5rem;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:yellow;
+
+}
+
+/* ===========================
+Hero
+=========================== */
+
+.hero{
+
+text-align:center;
+
+padding:4rem 10%;
+
+}
+
+.hero button{
+
+margin-top:1rem;
+
+padding:.8rem 1.5rem;
+
+background:var(--primary);
+
+color:white;
+
+border:none;
+
+border-radius:6px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+/* Transition */
+
+.hero button:hover{
+
+background:#094d6d;
+
+transform:scale(1.05);
+
+}
+
+/* ===========================
+Pseudo Elements
+=========================== */
+
+.title::before{
+
+content:"🏥 ";
+
+}
+
+.title::after{
+
+content:"";
+
+display:block;
+
+width:80px;
+
+height:3px;
+
+background:var(--primary);
+
+margin-top:8px;
+
+}
+
+/* ===========================
+Grid
+=========================== */
+
+.departments{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:1.5rem;
+
+padding:2rem 10%;
+
+}
+
+article{
+
+background:var(--card);
+
+padding:2rem;
+
+border-radius:var(--radius);
+
+text-align:center;
+
+box-shadow:0 0 10px rgba(0,0,0,.1);
+
+}
+
+/* ===========================
+Animation
+=========================== */
+
+.hero h2{
+
+animation:blink 2s infinite;
+
+}
+
+@keyframes blink{
+
+0%{
+
+color:black;
+
+}
+
+50%{
+
+color:red;
+
+}
+
+100%{
+
+color:black;
+
+}
+
+}
+
+/* ===========================
+Responsive
+=========================== */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:1rem;
+
+}
+
+nav{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.departments{
+
+grid-template-columns:1fr;
+
+}
+
+.hero{
+
+padding:2rem;
+
+}
+
+}</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1 id="Hospital">City Hospital</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Doctors</a>
+        <a href="#">Departments</a>
+        <a href="#">Contact</a>
+    </nav>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+    <h2>24/7 Emergency Services</h2>
+
+    <p>Quality healthcare with experienced doctors.</p>
+
+    <button>Book Appointment</button>
+
+</section>
+
+<section>
+
+<h2 class="title">Our Departments</h2>
+
+<div class="departments">
+
+<article>
+
+<h3>Cardiology</h3>
+
+<p>Heart Specialists</p>
+
+</article>
+
+<article>
+
+<h3>Neurology</h3>
+
+<p>Brain Specialists</p>
+
+</article>
+
+<article>
+
+<h3>Orthopedics</h3>
+
+<p>Bone Specialists</p>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+<script>
+let hospital = document.getElementById("Hospital")
+hospital.innerText = "Care Hospital";
+let heading = document.querySelector(".hero h2");
+
+heading.innerText = "Emergency Open 24 Hours";
+let par = document.querySelector(".hero p")
+par.innerText = "Best doctors available all day."
+let title = document.querySelector(".title");
+
+title.parentNode.style.background = "yellow";
+let btn = document.querySelector("button");
+
+btn.parentNode.style.background = "pink";
+let heading1 = document.querySelector("article h3");
+heading1.parentNode.style.background="orange"
+
+// heading.parentNode...
+</script>
+</body>
+
+</html>
