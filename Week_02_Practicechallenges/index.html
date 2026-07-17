@@ -1,97 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Accessible Dropdown</title>
-  <style>
-    /* Basic Styling */
-    body { font-family: sans-serif; padding: 50px; }
-    .dropdown { position: relative; display: inline-block; }
-    
-    .dropdown-btn {
-      padding: 10px 20px;
-      cursor: pointer;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .dropdown-menu {
-      display: none; 
-      position: absolute;
-      top: 100%;
-      left: 0;
-      margin: 5px 0 0 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background: #f9f9f9;
-      list-style: none;
-      min-width: 150px;
-    }
+<title>Dropdown Menu</title>
 
-    .dropdown-menu.show { display: block; }
+<style>
 
-    .dropdown-menu li a {
-      text-decoration: none;
-      color: #333;
-      display: block;
-      padding: 5px 0;
-    }
-  </style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    margin-top:80px;
+}
+
+.dropdown{
+    position:relative;
+}
+
+button{
+    padding:12px 20px;
+    font-size:16px;
+    cursor:pointer;
+    border:none;
+    background:#007bff;
+    color:white;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.menu{
+    position:absolute;
+    width:180px;
+    background:white;
+    border:1px solid #ccc;
+    margin-top:5px;
+
+    display:none;
+}
+
+.menu a{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:black;
+}
+
+.menu a:hover{
+    background:#f0f0f0;
+}
+
+.show{
+    display:block;
+}
+
+</style>
+
 </head>
 <body>
 
-  <div class="dropdown">
-    <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">
-      Menu Options
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <li role="none"><a href="#" role="menuitem">Profile</a></li>
-      <li role="none"><a href="#" role="menuitem">Settings</a></li>
-      <li role="none"><a href="#" role="menuitem">Logout</a></li>
-    </ul>
-  </div>
+<div class="dropdown">
 
- <script>
-  const btn = document.querySelector('.dropdown-btn');
-  const menu = document.querySelector('.dropdown-menu');
-  const menuItems = menu.querySelectorAll('[role="menuitem"]');
+    <button id="menuBtn">Menu ▼</button>
 
-  const toggleMenu = (open) => {
-    menu.classList.toggle('show', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  };
+    <div class="menu" id="menu">
 
-  btn.addEventListener('click', () => toggleMenu(menu.classList.toggle('show')));
+        <a href="#">Home</a>
 
-  document.addEventListener('keydown', (e) => {
-    const isExpanded = menu.classList.contains('show');
+        <a href="#">About</a>
 
-    if (e.key === 'ArrowDown' && document.activeElement === btn && !isExpanded) {
-      toggleMenu(true);
-      menuItems[0].focus();
-    }
+        <a href="#">Services</a>
 
-    if (e.key === 'Escape' && isExpanded) {
-      toggleMenu(false);
-      btn.focus();
-    }
-    if (isExpanded) {
-      const activeIndex = Array.from(menuItems).indexOf(document.activeElement);
-      
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        const next = (activeIndex + 1) % menuItems.length;
-        menuItems[next].focus();
-      }
-      
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const prev = (activeIndex - 1 + menuItems.length) % menuItems.length;
-        menuItems[prev].focus();
-      }
-    }
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) toggleMenu(false);
-  });
+        <a href="#">Contact</a>
+
+    </div>
+
+</div>
+
+<script>
+
+let menuBtn = document.getElementById("menuBtn");
+
+let menu = document.getElementById("menu");
+
+
+menuBtn.addEventListener("click", function(event){
+
+    event.stopPropagation();
+
+    menu.classList.toggle("show");
+
+});
+
+document.addEventListener("click", function(){
+
+    menu.classList.remove("show");
+
+});
+
+// Prevent menu from closing when clicking inside it
+menu.addEventListener("click", function(event){
+
+    event.stopPropagation();
+
+});
+
 </script>
 
 </body>
